@@ -1,7 +1,13 @@
 <template>
-	
+
 	<div class="login">
-		<h2>XXX登录系统</h2>
+		<el-row type="flex" class="row-bg" justify="center" align="middle" style="text-align: center;">
+			<el-col :span="6">
+				<div class="grid-content bg-purple">
+					<h2>x x x 登录系统</h2>
+				</div>
+			</el-col>
+		</el-row>
 		<div class="login_box">
 			<el-form class="login_form" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="80px">
 				<el-form-item label="用户名" prop="name">
@@ -25,7 +31,7 @@
 			return {
 				ruleForm: {
 					name: '',
-					pwd:''
+					pwd: ''
 				},
 				rules: {
 					name: [{
@@ -46,10 +52,13 @@
 		methods: {
 			onSubmit() {
 				// console.log('submit!');
-				this.$axios.get('/api/list').then(res=>{
-					console.log()
-					if(this.ruleForm.name == res.data().username){
+				this.$axios.get('/api/list').then(res => {
+					console.log(res)
+					if (this.ruleForm.name == res.data.username) {
 						alert("登录成功")
+						this.$router.push("/home")
+					} else {
+						alert("登录失败")
 					}
 				})
 				//console.log(this.$axios.get("/api/list"))
@@ -69,14 +78,14 @@
 		width: 100%;
 		height: 768px;
 	}
-	
+
 	.login_box {
 		width: 300px;
 		height: 200px;
 		background: #ccc6a4;
 		margin: 0 auto;
 		position: relative;
-		top: 300px;
+		top: 100px;
 		border-radius: 5px;
 	}
 
@@ -90,11 +99,9 @@
 		position: relative;
 		left: 150px;
 	}
-	h2{
-		position: absolute;
-		top: 250px;
-		left: 620px;
-		width: 200px;
-		margin: 0 auto;
+
+	h2 {
+		margin-top: 120px;
+		font-size: 36px;
 	}
 </style>
