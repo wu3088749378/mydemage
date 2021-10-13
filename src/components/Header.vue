@@ -24,7 +24,6 @@
 		</el-col>
 		<el-col :span="8">
 			<div class="grid-content bg-purple">
-				
 				<div class="line"></div>
 				<div class="demo-image">
 					<div class="block" v-for="fit in fits" :key="fit">
@@ -46,7 +45,7 @@
 			return {
 				fits: ['fill'],
 				url: 'https://img2.baidu.com/it/u=2653342432,4073413837&fm=26&fmt=auto',
-				name: '',
+				name: '张三',
 				activeIndex: '1',
 				activeIndex2: '1'
 			}

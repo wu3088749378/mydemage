@@ -13,6 +13,7 @@
 		<el-table-column prop="zip" label="邮编" width="120">
 		</el-table-column>
 		<el-table-column fixed="right" label="操作" width="100">
+			
 			<template slot-scope="scope">
 				<el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
 				<el-button type="text" @click="open" size="small">编辑</el-button>
@@ -26,6 +27,8 @@
 		methods: {
 			handleClick(row) {
 				this.result1 = row;
+				this.form.name = this.result1.name
+
 			},
 			open(row) {
 				// this.handleClick(row)
@@ -46,11 +49,26 @@
 				//6.邮箱
 			}
 		},
-		
+
 
 		data() {
 			return {
+				dialogTableVisible: false,
+				dialogFormVisible: false,
+				form: {
+					name: '',
+					region: '',
+					date1: '',
+					date2: '',
+					delivery: false,
+					type: [],
+					resource: '',
+					desc: ''
+				},
+				formLabelWidth: '120px',
+
 				result1: {},
+
 				tableData: [{
 					date: '2016-05-02',
 					name: '王小虎',
@@ -80,12 +98,12 @@
 					address: '上海市普陀区金沙江路 1516 弄',
 					zip: 200333
 				}],
-				
+
 			}
 		},
 		// components:{
 		// 	template:{`
-				
+
 		// 	`}
 		// }
 	}
