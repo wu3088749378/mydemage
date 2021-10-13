@@ -1,5 +1,5 @@
 <template>
-	<h2>欢迎加入首页</h2>
+	<h2>欢迎进入首页</h2>
 </template>
 
 <script>

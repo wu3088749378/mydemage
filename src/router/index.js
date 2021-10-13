@@ -5,7 +5,9 @@ import Home from '@/views/Home.vue'
 
 import Main from '@/components/mainbox/Maindemo'
 import Welcome from '@/components/mainbox/Welcome'
-
+import File from '@/components/mainbox/File'
+import Personality from '@/components/mainbox/Personality'
+import User from '@/components/mainbox/User'
 
 
 Vue.use(VueRouter)
@@ -26,7 +28,28 @@ const routes = [{
 				path: 'main',
 				component: Main,
 				meta: {
-					title: '欢迎进入项目管理'
+					title: '项目管理'
+				}
+			},
+			{
+				path: 'file',
+				component: File,
+				meta: {
+					title: '文档管理'
+				}
+			},
+			{
+				path: 'personality',
+				component: Personality,
+				meta: {
+					title: '个性设置'
+				}
+			},
+			{
+				path: 'user',
+				component: User,
+				meta: {
+					title: '个性设置'
 				}
 			},
 			{
