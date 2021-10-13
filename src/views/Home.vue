@@ -52,15 +52,16 @@
 	import Header from '@/components/Header'
 	export default {
 		name: 'home',
-		data() {
-			return {
-				name: "张三",
-				fits: ['fill'],
-				url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
+		methods: {
+			handleOpen(key, keyPath) {
+				console.log(key, keyPath);
+			},
+			handleClose(key, keyPath) {
+				console.log(key, keyPath);
 			}
 		},
 		components: {
-			'eheader':Header
+			'eheader': Header
 		}
 	}
 </script>
