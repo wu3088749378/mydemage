@@ -15,14 +15,22 @@ Vue.use(VueRouter)
 /*这里是设置路由规则的*/
 const routes = [{
 		path: '/',
-		component: Login
+		redirect: 'login'
+
+	},
+	{
+		path: '/login',
+		component: Login,
+		meta: {
+			title: 'login'
+		}
 	},
 	{
 		path: '/home',
 		component: Home,
 		children: [{
 				path: '/home',
-				redirect: 'welcome'
+				component: Welcome
 			},
 			{
 				path: 'main',
@@ -49,7 +57,7 @@ const routes = [{
 				path: 'user',
 				component: User,
 				meta: {
-					title: '个性设置'
+					title: '用户列表'
 				}
 			},
 			{
@@ -65,6 +73,20 @@ const routes = [{
 /*将路由规则添加到router实例中*/
 const router = new VueRouter({
 	routes
+})
+//挂载路由导航守卫
+router.beforeEach((to, from, next) => {
+	// 	to 将要访问的路径
+	// 	from 代表从哪个路径跳转而来
+	// 	next 函数表示放行
+	// 	next() 放行next('/login')强制跳转
+	if (to.path === '/login') return next();
+	// 	//获取token
+	//token在登录的时候回获取loken并保存到sessionStorage
+	const tokenStr = window.sessionStorage.getItem('token');
+	//判定当前页面中是否有对应的token
+	if (!tokenStr) return next('/login');//if的简便写法
+	next();
 })
 
 router.beforeEach(function(to, from, next) {

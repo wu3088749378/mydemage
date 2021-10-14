@@ -30,7 +30,9 @@
 						<el-image style="width: 42px; float: left; margin-top: 10px; height: 42px" :src="url"
 							:fit="fit">
 						</el-image>
-						用户名:<span>{{name}}</span>
+						
+						用户名:<span>{{username}}</span>
+						
 					</div>
 				</div>
 			</div>
@@ -45,7 +47,7 @@
 			return {
 				fits: ['fill'],
 				url: 'https://img2.baidu.com/it/u=2653342432,4073413837&fm=26&fmt=auto',
-				name: '张三',
+				name: '',
 				activeIndex: '1',
 				activeIndex2: '1'
 			}
@@ -54,9 +56,17 @@
 			handleSelect(key, keyPath) {
 				console.log(key, keyPath);
 			}
+		},
+		computed:{
+			username:function(){
+				return this.$store.state.name
+			}
 		}
 	}
 </script>
 
 <style>
+	el{
+		color: #FFF;
+	}
 </style>

@@ -15,9 +15,11 @@
 						<el-menu-item-group>
 							<template slot="title">分组一</template>
 							<el-menu-item index="1-1">
-								<el-link class="el-link" :underline="false">
-									<router-link to="/home/user">用户列表</router-link>
-								</el-link>
+								<router-link to="/home/user">
+									<el-link class="el-link" :underline="false">
+										用户列表
+									</el-link>
+								</router-link>
 							</el-menu-item>
 							<el-menu-item index="1-2">选项2</el-menu-item>
 						</el-menu-item-group>
@@ -26,25 +28,31 @@
 						<i class="el-icon-menu"></i>
 						<span slot="title">
 							<!-- <router-link to="/home/main">项目管理</router-link> -->
-							<el-link class="el-link" :underline="false">
-								<router-link to="/home/main">项目管理</router-link>
-							</el-link>
+							<router-link to="/home/main">
+								<el-link class="el-link" :underline="false">
+									项目管理
+								</el-link>
+							</router-link>
 						</span>
 					</el-menu-item>
 					<el-menu-item index="3">
 						<i class="el-icon-document"></i>
 						<span slot="title">
-							<el-link class="el-link" :underline="false">
-								<router-link to="/home/file">文档管理</router-link>
-							</el-link>
+							<router-link to="/home/file">
+								<el-link class="el-link" :underline="false">
+									文档管理
+								</el-link>
+							</router-link>
 						</span>
 					</el-menu-item>
 					<el-menu-item index="4">
 						<i class="el-icon-setting"></i>
 						<span slot="title">
-							<el-link class="el-link" :underline="false">
-								<router-link to="/home/personality">个性设置</router-link>
-							</el-link>
+							<router-link to="/home/personality">
+								<el-link class="el-link" :underline="false">
+									个性设置
+								</el-link>
+							</router-link>
 						</span>
 					</el-menu-item>
 				</el-menu>
@@ -84,7 +92,7 @@
 	}
 
 	.el-aside {
-		background-color: #D3DCE6;
+		background-color: #eaf5ff;
 		color: #333;
 		text-align: center;
 		line-height: 200px;
@@ -109,8 +117,9 @@
 	.el-container:nth-child(7) .el-aside {
 		line-height: 320px;
 	}
-	.el-link a:hover{
-		color: #FFFFFF;
-		
-	} 
+
+	.el-link {
+		color: #fff;
+
+	}
 </style>

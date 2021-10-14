@@ -52,10 +52,16 @@
 		methods: {
 			onSubmit() {
 				// console.log('submit!');
-				this.$axios.get('/api/list').then(res => {
-					console.log(res)
+				this.$axios.get('/vue/login').then(res => {
+
 					if (this.ruleForm.name == res.data.username) {
 						alert("登录成功")
+						console.log(res.data)
+						this.$store.commit('saveUser', res.data)
+						//1.讲登录成功后的token，保存到客户端的sessionStorage中
+						//1.1项目之中除了登录的API接口，其他的都要登录后才能进行下一步操作
+						window.sessionStorage.setItem('token', res.data.token)
+						//2.通过编程导航跳转到后台主页，路由地址是/home
 						this.$router.push("/home")
 					} else {
 						alert("登录失败")

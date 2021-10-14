@@ -1,6 +1,7 @@
 import Mock from 'mockjs'
 
-Mock.mock('/api/list','get',{
+Mock.mock('/vue/login','get',{
 	username:'admin',
-	password:'1234'
+	password:'1234',
+	token:'123'
 })
